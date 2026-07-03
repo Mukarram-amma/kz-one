@@ -1,1 +1,260 @@
+<!DOCTYPE html><html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KZ ONE Premium</title><style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background: radial-gradient(circle at top, #0f172a, #020617);color:white;}
 
+/* LOGIN */
+#login{
+  position:fixed;width:100%;height:100%;
+  background:#020617;
+  display:flex;justify-content:center;align-items:center;
+  z-index:5000;
+}
+#loginBox{
+  background:#0f172a;padding:30px;border-radius:20px;
+  text-align:center;border:1px solid #00eaff;
+}
+#loginBox input{
+  padding:12px;border-radius:10px;border:none;margin-top:10px;
+}
+#loginBox button{
+  margin-top:15px;padding:10px 20px;border:none;
+  border-radius:10px;background:#00eaff;cursor:pointer;
+}
+
+/* SALDO */
+#saldoBox{
+  position:fixed;top:15px;right:15px;
+  background:rgba(0,255,255,0.1);
+  border:1px solid #00eaff;
+  padding:10px 15px;border-radius:12px;
+  font-weight:bold;z-index:2000;
+}
+
+/* HEADER */
+.header{position:fixed;top:0;left:0;width:100%;height:240px;overflow:hidden;z-index:1000;}
+.header::before{
+  content:"";position:absolute;width:100%;height:100%;
+  background:url("https://media2.giphy.com/media/aiaWqNYWKrYigXbupB/giphy.gif") center/cover no-repeat;
+  filter:brightness(0.6);
+}
+.overlay{position:absolute;width:100%;height:100%;background:linear-gradient(to bottom, rgba(0,0,0,0.3), #020617);}
+.logo{
+  position:absolute;top:30px;width:100%;text-align:center;
+  font-size:42px;font-family:"Brush Script MT",cursive;
+  color:#00eaff;text-shadow:0 0 20px #00eaff;
+}
+
+.container{padding:20px;margin-top:260px;}
+
+.card{
+  display:flex;justify-content:space-between;align-items:center;
+  background:rgba(255,255,255,0.03);
+  backdrop-filter:blur(25px);
+  border-radius:20px;padding:18px;margin-bottom:20px;
+  border:1px solid rgba(255,255,255,0.08);
+}
+
+.left{display:flex;align-items:center;gap:15px;}
+
+.icon{
+  width:50px;height:50px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;
+}
+
+.telegram{ color:#00eaff; border:1px solid #00eaff;}
+.youtube{ color:#ff0033; border:1px solid #ff0033;}
+.tiktok{ color:#ff0050; border:1px solid #ff0050;}
+.bola{ color:#00ff99; border:1px solid #00ff99;}
+.info{ color:#ffaa00; border:1px solid #ffaa00;}
+.wd{ color:#00ffcc; border:1px solid #00ffcc;}
+
+.text h3{font-size:16px;}
+.text p{font-size:12px;color:#aaa;}
+
+.btn{
+  padding:12px 18px;border-radius:12px;
+  font-size:13px;font-weight:bold;
+  border:none;color:white;cursor:pointer;
+}
+
+.btn-telegram{background:linear-gradient(45deg,#00eaff,#0072ff);}
+.btn-tiktok{background:linear-gradient(45deg,#ff0050,#00f2ea);}
+.btn-bola{background:linear-gradient(45deg,#00ff99,#00c3ff);}
+.btn-info{background:linear-gradient(45deg,#ffaa00,#ff6600);}
+.btn-wd{background:linear-gradient(45deg,#00ffcc,#0066ff);}
+
+.video-card{flex-direction:column;align-items:flex-start;}
+.video-box{width:100%;margin-top:15px;}
+iframe{width:100%;height:180px;border-radius:15px;border:none;}
+
+.footer{text-align:center;margin-top:30px;font-size:12px;color:#888;}
+
+/* POPUP */
+.popup{
+  position:fixed;top:0;left:0;width:100%;height:100%;
+  background:rgba(0,0,0,0.7);
+  display:none;justify-content:center;align-items:center;
+  z-index:3000;
+}
+.popup-box{
+  background:#020617;padding:25px;border-radius:20px;
+  width:90%;max-width:400px;text-align:center;
+  border:1px solid #00eaff;
+}
+.popup-box button{
+  margin-top:15px;padding:10px;border:none;
+  border-radius:10px;background:#00eaff;
+}
+.nominal button{display:block;width:100%;margin:8px 0;}
+</style></head><body><!-- LOGIN --><div id="login">
+  <div id="loginBox">
+    <h2>Login User</h2>
+    <input type="text" id="namaInput" placeholder="Masukkan nama">
+    <br>
+    <button onclick="login()">Masuk</button>
+  </div>
+</div><!-- SALDO --><div id="saldoBox">💰 RP: <span id="saldo">0</span></div><!-- HEADER --><div class="header">
+  <div class="overlay"></div>
+  <div class="logo">KZ ONE</div>
+</div><div class="container">  <div class="card">
+    <div class="left">
+      <div class="icon telegram">👤</div>
+      <div class="text">
+        <h3>💬 Chat Admin</h3>
+        <p>Hubungi admin langsung via Telegram</p>
+      </div>
+    </div>
+    <a href="https://t.me/tapgameproo" target="_blank" class="btn btn-telegram">Chat</a>
+  </div>  <div class="card video-card">
+    <div class="left">
+      <div class="icon youtube">▶</div>
+      <div class="text">
+        <h3>🎥 YouTube</h3>
+      </div>
+    </div>
+    <div class="video-box">
+      <iframe src="https://www.youtube.com/embed/NMAlB-Hq6JE" allowfullscreen></iframe>
+    </div>
+  </div>  <div class="card">
+    <div class="left">
+      <div class="icon tiktok">♪</div>
+      <div class="text">
+        <h3>📱 TikTok</h3>
+      </div>
+    </div>
+    <a href="https://www.tiktok.com/@panggilajah_ama" class="btn btn-tiktok">Buka</a>
+  </div>  <div class="card">
+    <div class="left">
+      <div class="icon bola">⚽</div>
+      <div class="text">
+        <h3>⚽ Live Bola</h3>
+      </div>
+    </div>
+    <a href="https://www.tiktok.com/@panggilajah_ama/live" class="btn btn-bola">Nonton live</a>
+  </div>  <div class="card">
+    <div class="left">
+      <div class="icon info">ℹ️</div>
+      <div class="text">
+        <h3>Informasi</h3>
+      </div>
+    </div>
+    <button class="btn btn-info" onclick="openInfo()">Tap</button>
+  </div>  <div class="card">
+    <div class="left">
+      <div class="icon wd">💸</div>
+      <div class="text">
+        <h3>Withdraw</h3>
+      </div>
+    </div>
+    <button class="btn btn-wd" onclick="openWD()">Withdraw</button>
+  </div>  <div class="footer">© 2026 KZ ONE</div>
+</div><!-- POPUPS --><div class="popup" id="infoPopup">
+  <div class="popup-box">
+    <h3>⚠️ Info</h3>
+    <p>Screenshot transaksi & kirim ke admin.</p>
+    <button onclick="closeAll()">OK</button>
+  </div>
+</div><div class="popup" id="wdPopup">
+  <div class="popup-box nominal">
+    <h3>Pilih Nominal</h3>
+    <button onclick="prosesWD(1000)">1000</button>
+    <button onclick="prosesWD(5000)">5000</button>
+    <button onclick="prosesWD(10000)">10000</button>
+    <button onclick="closeAll()">Batal</button>
+  </div>
+</div><div class="popup" id="strukPopup">
+  <div class="popup-box">
+    <h3>Struk</h3>
+    <p id="strukText"></p>
+    <button onclick="closeAll()">OK</button>
+  </div>
+</div><script>
+let saldo = 0;
+let namaUser = "";
+
+/* LOAD */
+window.onload = ()=>{
+  if(localStorage.getItem("nama")){
+    namaUser = localStorage.getItem("nama");
+    document.getElementById("login").style.display="none";
+  }
+
+  if(localStorage.getItem("saldo")){
+    saldo = parseInt(localStorage.getItem("saldo"));
+  }
+
+  updateSaldo();
+};
+
+/* LOGIN */
+function login(){
+  let input = document.getElementById("namaInput").value;
+  if(input=="") return alert("Isi nama dulu!");
+  namaUser = input;
+  localStorage.setItem("nama", input);
+  document.getElementById("login").style.display="none";
+}
+
+/* UPDATE SALDO */
+function updateSaldo(){
+  document.getElementById("saldo").innerText =
+  saldo.toLocaleString("id-ID");
+}
+
+/* AUTO SALDO (HANYA JIKA LOGIN) */
+setInterval(()=>{
+  if(!namaUser) return;
+  saldo++;
+  localStorage.setItem("saldo", saldo);
+  updateSaldo();
+},1000);
+
+/* POPUP */
+function openInfo(){document.getElementById("infoPopup").style.display="flex";}
+function openWD(){document.getElementById("wdPopup").style.display="flex";}
+function closeAll(){document.querySelectorAll(".popup").forEach(p=>p.style.display="none");}
+
+/* WD */
+function prosesWD(n){
+  if(saldo<n) return alert("Saldo kurang!");
+
+  let kirim = n*0.5;
+  saldo -= n;
+  localStorage.setItem("saldo", saldo);
+
+  let waktu = new Date().toLocaleString();
+
+  document.getElementById("strukText").innerHTML=
+  `Nama: ${namaUser}<br>Nominal: ${n}<br>Diterima: ${kirim}<br>Waktu: ${waktu}`;
+
+  updateSaldo();
+  closeAll();
+  document.getElementById("strukPopup").style.display="flex";
+}
+</script></body>
+</html>
